@@ -7,7 +7,7 @@ import json
 import requests
 
 app = Flask(__name__) 
-CORS(app, origins=["https://citizen-information.vercel.app"])
+CORS(app)
 saved_file_data = {}
 
 
@@ -422,20 +422,6 @@ def get_saved_file_name():
     except Exception as e:
         return handle_error(e)
 
-
-
-@app.route('/login', methods=['POST'])
-def login():
-    data = request.get_json()
-    username = data.get('name')
-    password = data.get('password')
-
-    # Bandingkan data dengan input pengguna
-    if username == 'admin' and password == 'admin':
-        user_data = {'name': 'admin', 'email': 'admin@example.com'}
-        return jsonify(user_data)
-    else:
-        return jsonify({'error': 'Login failed. Check your username and password.'}), 401
 
 @app.route('/get_multipolygon', methods=['GET'])
 def get_multipolygon():
