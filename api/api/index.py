@@ -7,13 +7,13 @@ import json
 import requests
 
 app = Flask(__name__) 
-CORS(app)
+CORS(app, origins=["https://citizen-information.vercel.app"])
 saved_file_data = {}
 
-# link fikri 'C:/Users/Lakuna/OneDrive/Documents/GitHub/tubes_pbo_maps/uploads'
-# link darell 'C:/Users/ryand/Documents/GitHub/tubes_pbo_maps/uploads'
 
-UPLOAD_FOLDER = r'C:/codingan/project/Maps_pengabdian_masyarakat/uploads'
+UPLOAD_FOLDER = "/tmp/uploads"
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
