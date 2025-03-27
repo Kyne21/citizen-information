@@ -10,6 +10,7 @@ app = Flask(__name__)
 CORS(app)
 saved_file_data = {}
 
+API_BASE_URL = os.getenv("API_BASE_URL")
 
 UPLOAD_FOLDER = "/tmp/uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
