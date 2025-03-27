@@ -56,7 +56,7 @@ const Surat = () => {
     const fileName = 'surat_${nomorSurat}_${selectedName}.pdf';
 
     // Kirim file name dan "nama" ke backend
-    fetch('http://127.0.0.1:5000/save_file_name', {
+    fetch('https://citizen-information-production.up.railway.app/save_file_name', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -77,7 +77,7 @@ const Surat = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const responseData = await axios.get('http://127.0.0.1:5000/get_saved_data');
+        const responseData = await axios.get('https://citizen-information-production.up.railway.app/get_saved_data');
         setData(responseData.data.savedData);
       } catch (error) {
         console.error('Error:', error);
