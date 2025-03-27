@@ -18,7 +18,7 @@ function TambahAnak() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://127.0.0.1:5000/get_saved_data');
+      const response = await axios.get('https://citizen-information-production.up.railway.app/get_saved_data');
       setSavedData(response.data.savedData);  // Simpan seluruh data dari backend
       setFormData(response.data.savedData[0]);  // Ambil data pertama dari array savedData
     } catch (error) {
