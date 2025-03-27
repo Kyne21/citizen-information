@@ -41,7 +41,7 @@ const Maps = () => {
   const handleSearch = async () => {
     try {
       const response = await axios.get(
-        `http://127.0.0.1:5000/get_saved_data?search=${searchInput}`
+        `https://citizen-information-production.up.railway.app/get_saved_data?search=${searchInput}`
       );
       setSearchResults(response.data.savedData);
     } catch (error) {
@@ -61,7 +61,7 @@ const Maps = () => {
     const fetchData = async () => {
       try {
         const responseData = await axios.get(
-          "http://127.0.0.1:5000/get_saved_data"
+          "https://citizen-information-production.up.railway.app/get_saved_data"
         );
         setData(responseData.data.savedData);
       } catch (error) {
@@ -76,7 +76,7 @@ const Maps = () => {
     const fetchMultiPolygon = async () => {
       try {
         const response = await axios.get(
-          "http://127.0.0.1:5000/get_multipolygon"
+          "https://citizen-information-production.up.railway.app/get_multipolygon"
         );
         setMultiPolygon(response.data.multiPolygon);
       } catch (error) {
@@ -89,11 +89,11 @@ const Maps = () => {
 
   const handleDelete = async (name) => {
     try {
-      await axios.delete(`http://127.0.0.1:5000/delete_data/${name}`);
+      await axios.delete(`https://citizen-information-production.up.railway.app/delete_data/${name}`);
 
       // Update data after deletion
       const responseData = await axios.get(
-        "http://127.0.0.1:5000/get_saved_data"
+        "https://citizen-information-production.up.railway.app/get_saved_data"
       );
       setData(responseData.data.savedData);
 
@@ -110,7 +110,7 @@ const Maps = () => {
     const getSavedFileName = async () => {
       try {
         const response = await axios.get(
-          "http://127.0.0.1:5000/get_saved_file_name"
+          "https://citizen-information-production.up.railway.app/get_saved_file_name"
         );
         const formattedData = {};
 
