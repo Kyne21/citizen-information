@@ -8,7 +8,7 @@ const History = () => {
   useEffect(() => {
     const fetchHistory = async () => {
       try {
-        const response = await axios.get("http://127.0.0.1:5000/get_history");
+        const response = await axios.get("https://citizen-information-production.up.railway.app/get_history");
         setHistory(response.data.history);
       } catch (error) {
         console.error("Error fetching history:", error);
