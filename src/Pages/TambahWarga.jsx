@@ -253,7 +253,7 @@ function AddressForm({ formData, setFormData, setIsFormValid }) {
     const fetchMultiPolygon = async () => {
       try {
         const response = await axios.get(
-          "http://127.0.0.1:5000/get_multipolygon"
+          "https://citizen-information-production.up.railway.app/get_multipolygon"
         );
         setMultiPolygon(response.data.multiPolygon);
       } catch (error) {
