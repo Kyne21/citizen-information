@@ -47,7 +47,7 @@ def handle_uploaded_file(file, data, key):
         file_extension = file.filename.rsplit('.', 1)[1].lower()
         file_filename = f"{data['name']}_{key}.{file_extension}"
         file_path = os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(file_filename)).replace("\\", "/")
-        file_url = f'http://127.0.0.1:5000/get_photo/uploads{os.path.basename(file_path)}'
+        file_url = f'https://citizen-information-backend.onrender.com/get_photo/uploads{os.path.basename(file_path)}'
         file.save(file_path)
         data[key] = file_path
 
@@ -311,7 +311,7 @@ def get_saved_data():
         # Tambahkan URL foto ke setiap data yang diambil
         for data in filtered_data:
             if 'image' in data:
-                data['image_url'] = f'http://127.0.0.1:5000/get_photo/{os.path.basename(data["image"])}'
+                data['image_url'] = f'https://citizen-information-backend.onrender.com/get_photo/{os.path.basename(data["image"])}'
 
             # Check if the name exists in the saved_file_data dictionary
             if data['name'] in saved_file_data:
